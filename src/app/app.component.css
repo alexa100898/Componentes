@@ -1,0 +1,13 @@
+html { background-color: WHITE; }
+  .datos > * {
+    width: 80%;
+  }
+  .example-form {
+   
+    width: 80%;
+  }
+  
+  .example-full-width {
+    width: 80%;
+  }
+  

@@ -1,0 +1,108 @@
+<html ng-app="app" ng-controller="titleCtrl">
+<title>COMPONENETES</title>
+ 
+<div style="text-align:center">
+<h1>FORMULARIO INSCRIPCIÓN: PROGRAMACIÓN EN AMBIENTES WEB</h1> 
+</div>
+
+<H2>Complete las siguentes preguntas para sacar un 5!!!!</H2>
+
+<div style="text-align:center">
+<br>
+<label id="example-radio-group-label">Elige la jornada de tu preferencia</label>
+<br><br>
+<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="tujornada">
+  <mat-radio-button class="example-radio-button" *ngFor="let jornada of jornadas" [value]="jornada">
+    {{jornada}}
+  </mat-radio-button>
+</mat-radio-group>
+<br>
+<div>Usted eligio la jornada: <br>
+  {{tujornada}}</div>
+<br>
+
+<br>
+<mat-form-field>
+  <mat-label>Selecciona la hora preferida</mat-label>
+  <mat-select [(value)]="hora">
+    <mat-option>None</mat-option>
+    <mat-option value="6:00 am">6:00 am</mat-option>
+    <mat-option value="2:00 pm">2:00 pm</mat-option>
+    <mat-option value="6:00 pm">6:00 pm</mat-option>
+  </mat-select>
+</mat-form-field>
+<p>La hora de su curso es: <br>{{hora}}</p><br>
+
+
+<h4>Datos Basicos</h4>
+<br>
+<div class="datos">
+  <mat-form-field>
+    <input matInput placeholder="Nombres">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Apellidos"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Correo electronico">
+      <mat-option value="option"></mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+<br>
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+
+  
+   <br>
+   <mat-checkbox> Mujer </mat-checkbox>
+   <mat-checkbox> Hombre </mat-checkbox>
+   <mat-checkbox> No se sabe </mat-checkbox>
+   <br>
+</div>
+<br>
+<h4>Datos Profesionales</h4>
+
+<br>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Formacion academica" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let Formacion of Formacions" [value]="Formacion">
+          {{Formacion}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+<br>
+
+<div>Importancia del curso para usted (0-5)</div>
+<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="0" min="0" max="5"></mat-slider>
+<br>
+
+<mat-form-field>
+  <mat-label>FontSize</mat-label>
+  <mat-select #fontSize value="16px" (selectionChange)="triggerResize()">
+    <mat-option value="25px">25px</mat-option>
+    <mat-option value="30px">30px</mat-option>
+    <mat-option value="35px">35px</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field [style.fontSize]="fontSize.value">
+  <mat-label>TEXTAREA</mat-label>
+  <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+    cdkAutosizeMaxRows="5"></textarea>
+</mat-form-field>
+<br>
+
+<mat-slide-toggle>Aprueba el formulario ?</mat-slide-toggle>
+</div>
+  
